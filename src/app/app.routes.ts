@@ -2,6 +2,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
+import { Users } from './users';
+import { Wikipedia } from './wikipedia';
 
 import { DataResolver } from './app.resolver';
 
@@ -13,5 +15,7 @@ export const ROUTES: Routes = [
   {
     path: 'detail', loadChildren: () => System.import('./+detail')
   },
+  { path: 'users', component: Users },
+  { path: 'wikipedia', component: Wikipedia },
   { path: '**',    component: NoContentComponent },
 ];

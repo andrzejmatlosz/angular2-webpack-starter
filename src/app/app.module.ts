@@ -19,6 +19,14 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 
+import { UsersService, User } from './services/usersService';
+import { Users } from './users';
+import { Wikipedia } from './wikipedia';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { JsonpModule } from '@angular/http';
+
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -41,17 +49,23 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLarge
+    XLarge,
+    Users,
+    Wikipedia
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true })
+    RouterModule.forRoot(ROUTES, { useHash: true }),
+    HttpModule,
+    JsonpModule, 
+    ReactiveFormsModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    UsersService
   ]
 })
 export class AppModule {

@@ -14,6 +14,7 @@ import { AppModule } from './app';
  * Bootstrap our Angular app with a top level NgModule
  */
 export function main(): Promise<any> {
+  console.log('inside bootsrtap');
   return platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .then(decorateModuleRef)
